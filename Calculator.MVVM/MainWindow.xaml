@@ -1,0 +1,127 @@
+﻿<Window x:Class="Calculator.MVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:core="clr-namespace:Calculator.MVVM.Core.ViewModel;assembly=Calculator.MVVM.Core"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="250" 
+        Width="200">
+
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding Write1Command}" Key="NumPad1"/>
+        <KeyBinding Command="{Binding Write2Command}" Key="NumPad2"/>
+        <KeyBinding Command="{Binding Write3Command}" Key="NumPad3"/>
+        <KeyBinding Command="{Binding Write4Command}" Key="NumPad4"/>
+        <KeyBinding Command="{Binding Write5Command}" Key="NumPad5"/>
+        <KeyBinding Command="{Binding Write6Command}" Key="NumPad6"/>
+        <KeyBinding Command="{Binding Write7Command}" Key="NumPad7"/>
+        <KeyBinding Command="{Binding Write8Command}" Key="NumPad8"/>
+        <KeyBinding Command="{Binding Write9Command}" Key="NumPad9"/>
+        <KeyBinding Command="{Binding Write0Command}" Key="NumPad0"/>
+
+        <KeyBinding Command="{Binding ClearCommand}" Key="Delete"/>
+        <KeyBinding Command="{Binding CalculateCommand}" Key="Return"/>
+
+        <KeyBinding Command="{Binding DivideCommand}" Key="Divide"/>
+        <KeyBinding Command="{Binding MultiplyCommand}" Key="Multiply"/>
+        <KeyBinding Command="{Binding SubtractCommand}" Key="Subtract"/>
+        <KeyBinding Command="{Binding AddCommand}" Key="Add"/>
+    </Window.InputBindings>
+    
+    <Window.DataContext>
+        <core:MainWindowViewModel/>
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.ColumnSpan="4"
+                 Text="{Binding Calculation}"
+                 IsReadOnly="True"
+                 VerticalContentAlignment="Center"/>
+
+        <Button Content="1"
+                Grid.Column="0"
+                Grid.Row="1"
+                Command="{Binding Write1Command}"/>
+        <Button Content="2"
+                Grid.Column="1"
+                Grid.Row="1"
+                Command="{Binding Write2Command}"/>
+        <Button Content="3"
+                Grid.Column="2"
+                Grid.Row="1"
+                Command="{Binding Write3Command}"/>
+        <Button Content="4"
+                Grid.Column="0"
+                Grid.Row="2"
+                Command="{Binding Write4Command}"/>
+        <Button Content="5"
+                Grid.Column="1"
+                Grid.Row="2"
+                Command="{Binding Write5Command}"/>
+        <Button Content="6"
+                Grid.Column="2"
+                Grid.Row="2"
+                Command="{Binding Write6Command}"/>
+        <Button Content="7"
+                Grid.Column="0"
+                Grid.Row="3"
+                Command="{Binding Write7Command}"/>
+        <Button Content="8"
+                Grid.Column="1"
+                Grid.Row="3"
+                Command="{Binding Write8Command}"/>
+        <Button Content="9"
+                Grid.Column="2"
+                Grid.Row="3"
+                Command="{Binding Write9Command}"/>
+        <Button Content="0"
+                Grid.Column="1"
+                Grid.Row="4"
+                Command="{Binding Write0Command}"/>
+
+        <Button Content="C"
+                Grid.Column="0"
+                Grid.Row="4"
+                Command="{Binding ClearCommand}"/>
+        <Button Content="="
+                Grid.Column="2"
+                Grid.Row="4"
+                Command="{Binding CalculateCommand}"/>
+
+        <Button Content="/"
+                Grid.Column="3"
+                Grid.Row="1"
+                Command="{Binding DivideCommand}"/>
+        <Button Content="*"
+                Grid.Column="3"
+                Grid.Row="2"
+                Command="{Binding MultiplyCommand}"/>
+        <Button Content="-"
+                Grid.Column="3"
+                Grid.Row="3"
+                Command="{Binding SubtractCommand}"/>
+        <Button Content="+"
+                Grid.Column="3"
+                Grid.Row="4"
+                Command="{Binding AddCommand}"/>
+
+
+    </Grid>
+
+</Window>
